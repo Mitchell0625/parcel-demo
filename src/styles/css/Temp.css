@@ -1,0 +1,15 @@
+.temp__div {
+  height: 250px;
+  width: 250px;
+  background-color: #333333cb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 30px;
+  color: white; }
+  .temp__div p {
+    font-size: 72px; }
+
+/*# sourceMappingURL=Temp.css.map */
