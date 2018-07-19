@@ -1,6 +1,6 @@
-.weather__div, .weather-form {
+.weather__div, .weather__form {
   display: flex;
-  align-content: center; }
+  align-items: center; }
 
 .weather__div {
   width: 100%;
@@ -15,32 +15,30 @@
     text-align: center;
     color: white; }
 
-.weather-form {
+.weather__form {
   margin-top: 44px;
   justify-content: center;
-  align-items: center; }
-  .weather-form input {
-    border: 2px solid #333333;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 20%; }
+  .weather__form input {
+    padding-left: 10px;
     height: 30px;
     margin-right: 20px;
-    background-color: white;
-    border-radius: 4px; }
-  .weather-form button {
+    background-color: white; }
+  .weather__form button {
     padding: 10px 40px;
     background-color: #80abe0;
     border-radius: 3px;
     color: white; }
 
 .weather__err {
-  animation: err 5s linear; }
+  background-color: #49141463;
+  padding: 10px;
+  color: white;
+  border: 2px solid red; }
 
 .weather__temp {
   height: 300px; }
-
-@keyframes err {
-  from {
-    display: block; }
-  to {
-    display: none; } }
 
 /*# sourceMappingURL=Weather.css.map */

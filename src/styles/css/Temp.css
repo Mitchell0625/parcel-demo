@@ -1,6 +1,6 @@
 .temp__div {
   display: flex;
-  align-content: center; }
+  align-items: center; }
 
 .temp__div {
   height: 250px;
@@ -12,6 +12,7 @@
   font-size: 30px;
   color: white; }
   .temp__div p {
-    font-size: 72px; }
+    font-size: 72px;
+    padding-left: 16px; }
 
 /*# sourceMappingURL=Temp.css.map */

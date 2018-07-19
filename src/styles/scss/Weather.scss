@@ -18,19 +18,20 @@
   }
 }
 
-.weather-form {
+.weather__form {
   @extend %flex-align;
 
   margin-top: 44px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  height: 20%;
 
   input {
-    border: 2px solid #333333;
+    padding-left: 10px;
     height: 30px;
     margin-right: 20px;
     background-color: white;
-    border-radius: 4px;
   }
 
   button {
@@ -41,17 +42,11 @@
   }
 }
 .weather__err {
-  animation: err 5s linear;
+  background-color: #49141463;
+  padding: 10px;
+  color: white;
+  border: 2px solid red;
 }
 .weather__temp {
   height: 300px;
-}
-
-@keyframes err {
-  from {
-    display: block;
-  }
-  to {
-    display: none;
-  }
 }

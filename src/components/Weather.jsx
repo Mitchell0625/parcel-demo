@@ -12,12 +12,23 @@ class Weather extends Component {
     };
     this.handleInput = this.handleInput.bind(this);
     this.getWeather = this.getWeather.bind(this);
+    this.errorTimeout = this.errorTimeout.bind(this);
+    this.showError = this.showError.bind(this);
   }
 
   handleInput(e) {
     this.setState({ zip: e.target.value });
   }
-  showError() {}
+
+  errorTimeout() {
+    this.setState({ error: true });
+    setTimeout(this.showError, 5000);
+  }
+
+  showError() {
+    this.setState({ error: false });
+  }
+
   getWeather(e) {
     axios
       .get(
@@ -28,7 +39,7 @@ class Weather extends Component {
       .then(resp => {
         this.setState({ degrees: [resp.data] });
       })
-      .catch(() => this.setState({ error: true }));
+      .catch(() => this.errorTimeout());
 
     e.preventDefault();
   }
@@ -45,7 +56,7 @@ class Weather extends Component {
             Please enter a valid 5-digit US zipcode
           </p>
         )}
-        <form className="weather-form" onSubmit={this.getWeather}>
+        <form className="weather__form" onSubmit={this.getWeather}>
           <input
             onChange={this.handleInput}
             placeholder="Zipcode"
