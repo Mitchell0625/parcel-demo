@@ -1,11 +1,13 @@
+@import "./utils.scss";
+
 .temp__div {
   height: 250px;
   width: 250px;
-  background-color: #333333cb;
-  display: flex;
+  background-color: #33333363;
+  @extend %flex-align;
+
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
   border-radius: 4px;
   font-size: 30px;
   color: white;

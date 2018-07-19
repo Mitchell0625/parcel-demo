@@ -1,12 +1,14 @@
+.weather__div, .weather-form {
+  display: flex;
+  align-content: center; }
+
 .weather__div {
   width: 100%;
   height: 100%;
   margin: auto;
-  display: flex;
   justify-content: space-between;
-  flex-direction: column;
-  align-items: center; }
-  .weather__div > p {
+  flex-direction: column; }
+  .weather__div .weather__title {
     font-size: 50px;
     font-weight: bold;
     margin-bottom: 50px;
@@ -14,21 +16,31 @@
     color: white; }
 
 .weather-form {
-  display: flex;
   margin-top: 44px;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
   .weather-form input {
     border: 2px solid #333333;
     height: 30px;
-    padding: 20px;
     margin-right: 20px;
-    transition: 0.4s;
     background-color: white;
     border-radius: 4px; }
   .weather-form button {
     padding: 10px 40px;
-    background-color: green;
+    background-color: #80abe0;
     border-radius: 3px;
     color: white; }
+
+.weather__err {
+  animation: err 5s linear; }
+
+.weather__temp {
+  height: 300px; }
+
+@keyframes err {
+  from {
+    display: block; }
+  to {
+    display: none; } }
 
 /*# sourceMappingURL=Weather.css.map */

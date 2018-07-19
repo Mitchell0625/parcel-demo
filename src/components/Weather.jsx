@@ -7,16 +7,17 @@ class Weather extends Component {
     super();
     this.state = {
       zip: "",
-      degrees: []
+      degrees: [],
+      error: false
     };
     this.handleInput = this.handleInput.bind(this);
     this.getWeather = this.getWeather.bind(this);
   }
 
   handleInput(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ zip: e.target.value });
   }
-
+  showError() {}
   getWeather(e) {
     axios
       .get(
@@ -27,29 +28,36 @@ class Weather extends Component {
       .then(resp => {
         this.setState({ degrees: [resp.data] });
       })
-      .catch(err => console.log(err));
+      .catch(() => this.setState({ error: true }));
 
     e.preventDefault();
   }
   render() {
-    const { degrees } = this.state;
+    const { degrees, error } = this.state;
     const view = degrees.map((e, i) => {
       return <Temp key={i} name={e.name} temp={e.main.temp} />;
     });
     return (
       <div className="weather__div">
-        <p>Search by Zipcode</p>
+        <p className="weather__title">Temp Getter</p>
+        {error && (
+          <p className="weather__err">
+            Please enter a valid 5-digit US zipcode
+          </p>
+        )}
         <form className="weather-form" onSubmit={this.getWeather}>
           <input
             onChange={this.handleInput}
             placeholder="Zipcode"
             name="zip"
+            type="number"
             required
           />
           <button type="submit" value="Submit">
             Submit
           </button>
         </form>
+
         <div className="weather__temp">{view}</div>
       </div>
     );
